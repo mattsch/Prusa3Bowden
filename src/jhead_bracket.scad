@@ -32,8 +32,8 @@ filament_feed_hole_d=(filament_diameter*1.1)/cos(180/8);
 echo ("filament_feed_hole_d", filament_feed_hole_d);
 
 //filament fitting sizes
-fitting_diameter=13.5;  //for the 6mm OD, 1/4" fitting
-fitting_nut=15;
+fitting_diameter=13;  //for the 6mm OD, 1/4" fitting
+fitting_nut=16; // unused for the moment
 
 //uncomment to view.
 //assembly();			//shows components assembled in position.
@@ -76,8 +76,8 @@ module peek_guard() {
             translate([-15,12,0]) rotate([90,0,0]) cylinder(r=4.5,h=24,center=true,$fn=30);
             translate([15,12,0]) rotate([90,0,0]) cylinder(r=4.5,h=24,center=true,$fn=30);
             difference(){
-                translate([0,12,0]) cube(([24,24,9]),center=true);
-                translate([0,31.1,0]) rotate([45,0,0]) cube(([30,10,42]),center=true);
+                translate([0,12,0]) cube(([24,24,11]),center=true);
+                // translate([0,31.1,0]) rotate([40,0,0]) cube(([30,10,42]),center=true);
                 }
             difference() {
                 //body
@@ -98,11 +98,11 @@ module peek_guard() {
             translate([-15,10,0]) rotate([90,0,0]) cylinder(r=1.5,h=60,center=true,$fn=30);
 
             //pneumatic fitting
-            translate([0,12,0]) rotate([90,0,0]) rotate([0,0,90]) teardrop(r=fitting_diameter/2,h=5,$fn=20);
+            translate([0,12,2]) cylinder(r=fitting_diameter/2,h=8,center=true,$fn=20);
 
             //nut for pneumatic fitting
-            translate([0,12,-1]) rotate([0,0,30]) cylinder(h=4,r=1+(fitting_nut/2),$fn=6);
-            translate([0,0,1]) cube(([fitting_nut,24,4]),center=true);
+            //translate([0,12,-1]) rotate([0,0,30]) cylinder(h=4,r=1+(fitting_nut/2),$fn=6);
+            //translate([0,0,1]) cube(([fitting_nut,24,4]),center=true);
 
             //jhead
             translate([0,12,-28]) rotate([0,0,90]) jhead_cut();
@@ -165,7 +165,7 @@ module jhead_cut() {
     //peek
     cylinder(r=8+clearance,h=30,center=true,$fn=30);
     translate([0,0,15+2.25]) cylinder(r=6.05+clearance,h=5.5,center=true,$fn=30);
-    translate([0,0,15+4.5+2.375]) cylinder(r=8+clearance,h=4.75+clearance,center=true,$fn=30);	//top clearance equal 0.1 either side at mo, may need adjusting!!!
+    translate([0,0,15+4.5+2.375]) cylinder(r=8+clearance,h=5+clearance,center=true,$fn=30);	//top clearance equal 0.1 either side at mo, may need adjusting!!!
 
     //nozzle
     translate([3.75,0,-15-4.125]) cube(([12.75,12.75,8.25]),center=true);
@@ -241,7 +241,7 @@ module print() {
     translate([0,15.75,24]) rotate([-90,0,0]) peek_guard();
     translate([0,26,4.5]) clamp();
     translate([0,-29,0.5]) rotate([180,0,0]) blank();
-    // translate([0,15.75,24]) rotate([180,0,0]) peek_guard(); // commement others, uncomment this for testing print
+    // translate([0,0,0]) rotate([180,0,0]) peek_guard(); // commement others, uncomment this for testing print
 }
 
 module teardrop (r=8,h=20) {
