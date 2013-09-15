@@ -239,8 +239,8 @@ module assembly() {
 
 module print() {
     translate([0,15.75,24]) rotate([-90,0,0]) peek_guard();
-    translate([0,26,4.5]) clamp();
-    translate([0,-29,0.5]) rotate([180,0,0]) blank();
+    translate([0,28,4.5]) clamp();
+    translate([0,-30,0.5]) rotate([180,0,0]) blank();
     // translate([0,0,0]) rotate([180,0,0]) peek_guard(); // commement others, uncomment this for testing print
 }
 
