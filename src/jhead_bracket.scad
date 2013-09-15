@@ -32,7 +32,7 @@ filament_feed_hole_d=(filament_diameter*1.1)/cos(180/8);
 echo ("filament_feed_hole_d", filament_feed_hole_d);
 
 //filament fitting sizes
-fitting_diameter=13;  //for the 6mm OD, 1/4" fitting
+fitting_diameter=13.1;  //for the 6mm OD, 1/4" fitting
 fitting_nut=16; // unused for the moment
 
 //uncomment to view.
