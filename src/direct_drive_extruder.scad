@@ -29,7 +29,7 @@ Asses the 1.75 to 3mm print quality.
 //globals
 clearance 		= 0.2;			//adjust if tight or slack once printed.
 layer_height		= 0.3;			//used for removable structure.
-filament_dia		= 1.75;			//set as 1.75 or 3.
+filament_dia		= 3;			//set as 1.75 or 3.
 thread_dia		= 10;			//diameter of pneumatic fitting thread.
 thread_length	= 5;				//length of pneumatic fitting thread.
 
